@@ -1,0 +1,135 @@
+:root {
+  --percentage: 25;
+}
+
+body {
+  font-family: 'Inter', san-serif;
+  color: white;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+button {
+  all: unset;
+}
+
+.circle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+}
+
+svg {
+  position: relative;
+  z-index: 1;
+}
+
+circle {
+  fill: none;
+  stroke-width: 1;
+}
+
+.progress {
+  stroke-dasharray: 185;
+  stroke-dashoffset: 185;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 0.5s ease;
+  stroke-width: 1;
+  animation: progress-animation 2s forwards;
+}
+
+@keyframes progress-animation {
+  from {
+    stroke-dashoffset: 185;
+  }
+
+  to {
+    stroke-dashoffset: calc(185 - (185 * var(--percentage)) / 100);
+  }
+}
+
+.circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  z-index: 2;
+}
+
+
+.checklist-container {
+  padding: 12px 18px 15px 22px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  width: 743px;
+  height: 61px;
+  background: #3579f5;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.details {
+  margin-left: -50px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+
+.checklist-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2364db;
+  border-radius: 40px;
+  padding: 0px 10px;
+  width: 56px;
+  height: 18px;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+}
+
+.status {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 133%;
+}
+
+.next-action {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+}
+
+.open-checklist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 6px;
+  padding: 10px 32px;
+  width: 120px;
+  height: 25px;
+  background: #f4f8ff;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  color: #4777ed;
+}
+
+.open-checklist:hover {
+  transform: scale(1.05);
+}
